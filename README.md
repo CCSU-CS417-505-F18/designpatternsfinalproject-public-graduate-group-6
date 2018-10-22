@@ -45,5 +45,3 @@ MovementRangeSensor sensor = new MovementRangeSensor(myGrovePiInstance, 7);
 Robot robot = new Robot();
 sensor.attachObserver(robot);
 ```
-
-``` Test Commit/push
