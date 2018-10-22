@@ -7,8 +7,8 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="cs505.group6.rangesensor" default="default" basedir=".">
-    <description>Builds, tests, and runs the project cs505.group6.rangesensor.</description>
+<project name="Group6PublicLibrary" default="default" basedir=".">
+    <description>Builds, tests, and runs the project Group6PublicLibrary.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
 
@@ -58,7 +58,7 @@
 
     An example of overriding the target for project execution could look like this:
 
-        <target name="run" depends="cs505.group6.rangesensor-impl.jar">
+        <target name="run" depends="Group6PublicLibrary-impl.jar">
             <exec dir="bin" executable="launcher.exe">
                 <arg file="${dist.jar}"/>
             </exec>
