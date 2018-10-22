@@ -24,22 +24,24 @@ To use the RangeSensor component, download the following jars and include them i
 
 # Usage
 
+First off we to make sure the class that will be receiving updates implements the IRangeObserver interface. In the below example, the Robot class will be receiving updates from a MovementRangeSensor:
+
 ```
-class MyRangeAwareClass implements IRangeObserver {
+class Robot implements IRangeObserver {
   public void update(RangeSensor rangeSensor) {
-    if (rangeSensor instanceof DetectRangeSensor) {
-      // obtain range-related info from rangeSensor object
-    } else if (rangeSensor instanceof MovementRangeSensor) {
-      // movement detected!!
-    } else if (rangeSensor instanceof WithinRangeSensor) {
-      // object within range!!
+    if (rangeSensor instanceof MovementRangeSensor) {
+      // Movement detected! Let's do something in response
     }
   }  
 }
+
 ```
+Instances of the Robot class can now be registered with a MovementRangeSensor instance and receive updates.
 
+Next, let's create instances of MovementRangeSensor and Robot and wire them up. To create an instance of MovementRangeSensor, we need to pass in your GrovePi instance and the port number the distance sensor is connected to. After that, we create our Robot instance and register it with the sensor:
 
-
-
-
-
+```
+MovementRangeSensor sensor = new MovementRangeSensor(myGrovePiInstance, 7);
+Robot robot = new Robot();
+sensor.attachObserver(robot);
+```
