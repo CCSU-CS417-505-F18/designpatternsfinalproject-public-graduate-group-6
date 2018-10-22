@@ -1,8 +1,8 @@
 # RangeSensor 
 
-### Created by Group 6 of the Fall 2018 CS505 Design Patterns course
+#### Created by Group 6 for the Fall 2018 CS505 Design Patterns course @ CCSU
 
-### Group 6 Members: Paul Borysewicz, David Hanley, Chris Mirabello, Wayne Work
+#### Group 6 Members: Paul Borysewicz, David Hanley, Chris Mirabello, Wayne Work
 
 ## Overview 
 
@@ -22,9 +22,9 @@ To use the RangeSensor component, download the following jars and include them i
 
 * TODO
 
-# Usage
+## Usage
 
-First off we to make sure the class that will be receiving updates implements the IRangeObserver interface. In the below example, the Robot class will be receiving updates from a MovementRangeSensor:
+First off, the class that will be receiving updates needs to implement the IRangeObserver interface. In the below example, the Robot class will be receiving updates from a MovementRangeSensor:
 
 ```
 class Robot implements IRangeObserver {
