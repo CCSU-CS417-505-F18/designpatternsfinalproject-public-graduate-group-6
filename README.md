@@ -16,16 +16,6 @@ The library supports three different range-related features made available to cl
 
 The component makes use of the Observer pattern, so client projects make use of the component by creating an instances of the above classes and then registering other components with these instances to receive updates. Please note, client components must implement the IRangeObserver interface.
 
-## Required 3rd Party Libraries:
-
-To use the RangeSensor component, download the following jars and include them in your project
-GrovePi-spec-0.1.0-SNAPSHOT.jar
-this jar includse packages
-org.iot.raspberry.grovepi
-org.iot.raspberry.grovepi.devices
-these can be found in the GrovePi git repo at the following link in /software/java8
-https://github.com/DexterInd/GrovePi
-
 ## Usage
 
 First off, the class that will be receiving updates needs to implement the IRangeObserver interface. In the below example, the Robot class will be receiving updates from a MovementRangeSensor:
@@ -45,7 +35,7 @@ Instances of the Robot class can now be registered with a MovementRangeSensor in
 Next, let's create instances of MovementRangeSensor and Robot and wire them up. To create an instance of MovementRangeSensor, we need to pass in your GrovePi instance and the port number the distance sensor is connected to. After that, we create our Robot instance and register it with the sensor:
 
 ```
-MovementRangeSensor sensor = new MovementRangeSensor(myGrovePiInstance, 7);
+MovementRangeSensor sensor = new MovementRangeSensor(7);
 Robot robot = new Robot();
 sensor.attachObserver(robot);
 ```
