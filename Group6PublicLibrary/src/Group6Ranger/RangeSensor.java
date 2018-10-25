@@ -1,37 +1,26 @@
 package Group6Ranger;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
+import org.iot.raspberry.grovepi.GrovePi;
+import org.iot.raspberry.grovepi.devices.GroveUltrasonicRanger;
 
 /**
- * abstract subject provides methods for storing, removing, and notifying
- * observers
+ * abstract subject provides methods for storing, removing, and notifying observers
  */
-abstract class RangeSensor {
-
+abstract class RangeSensor extends GroveUltrasonicRanger{
     private List<IRangeObserver> observers;
 
-    /**
-     * Constructor
-     * creates a python file to use built in grove pi functionality
-     * @param pin GrovePi pin the sensor is connected to
-     */
-    public RangeSensor(int pin) {
-        PyFile.createFile(pin);
+    public RangeSensor(GrovePi grovePi, int pin) {
+        super(grovePi, pin);
     }
-
-    public void attachObserver(IRangeObserver observer) {
+    
+    public void attachObserver(IRangeObserver observer){
         observers.add(observer);
     }
-
-    public void detachObserver(IRangeObserver observer) {
+    public void detachObserver(IRangeObserver observer){
         observers.remove(observer);
     }
-
-    public final void notifyObservers() {
+    public final void notifyObservers(){
         observers.forEach((o) -> {
             o.update(this);
         });
