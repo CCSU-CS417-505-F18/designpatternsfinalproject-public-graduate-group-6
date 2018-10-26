@@ -1,17 +1,18 @@
 package Group6Ranger;
 
-import java.util.List;
+import java.util.*;
 import org.iot.raspberry.grovepi.GrovePi;
 import org.iot.raspberry.grovepi.devices.GroveUltrasonicRanger;
 
 /**
  * abstract subject provides methods for storing, removing, and notifying observers
  */
-abstract class RangeSensor extends GroveUltrasonicRanger{
-    private List<IRangeObserver> observers;
+public abstract class RangeSensor{
+    private List<IRangeObserver> observers = new ArrayList<IRangeObserver>();
+     GroveUltrasonicRanger ranger;
 
     public RangeSensor(GrovePi grovePi, int pin) {
-        super(grovePi, pin);
+        ranger = new GroveUltrasonicRanger(grovePi, pin);
     }
     
     public void attachObserver(IRangeObserver observer){
@@ -20,9 +21,9 @@ abstract class RangeSensor extends GroveUltrasonicRanger{
     public void detachObserver(IRangeObserver observer){
         observers.remove(observer);
     }
-    public final void notifyObservers(){
+    public final void notifyObservers(double range){
         observers.forEach((o) -> {
-            o.update(this);
+            o.update(this, range);
         });
     }
 }

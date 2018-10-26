@@ -8,6 +8,7 @@ public interface IRangeObserver {
     /**
      *
      * @param rangesensor
+     * @param range
      */
-    public void update(RangeSensor rangesensor);
+    public void update(RangeSensor rangesensor, double range);
 }
