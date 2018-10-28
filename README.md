@@ -19,8 +19,12 @@ The component makes use of the Observer pattern, so client projects make use of 
 ## Required 3rd Party Libraries:
 
 To use the RangeSensor component, download the following jars and include them in your project
-
-* TODO
+GrovePi-spec-0.1.0-SNAPSHOT.jar
+this jar includse packages
+org.iot.raspberry.grovepi
+org.iot.raspberry.grovepi.devices
+these can be found in the GrovePi git repo at the following link in /software/java8
+https://github.com/DexterInd/GrovePi
 
 ## Usage
 
