@@ -8,8 +8,6 @@ import org.iot.raspberry.grovepi.GrovePi;
  */
 public final class MovementRangeSensor extends RangeSensor {
 
-    private boolean running = false;
-
     /**
      * Constructor
      * @param grovePi Reference to the GrovePi object
@@ -17,13 +15,6 @@ public final class MovementRangeSensor extends RangeSensor {
      */
     public MovementRangeSensor(GrovePi grovePi, int pin) {
         super(grovePi, pin);
-    }
-
-    /**
-     * Stops the Sensor from firing Range calls
-     */
-    public void stop() {
-        running = false;
     }
 
     /**

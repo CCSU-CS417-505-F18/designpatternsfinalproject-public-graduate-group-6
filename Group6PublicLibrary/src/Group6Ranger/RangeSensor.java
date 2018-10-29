@@ -11,6 +11,7 @@ public abstract class RangeSensor{
     private List<IRangeObserver> observers = new ArrayList<IRangeObserver>();
      GroveUltrasonicRanger ranger;
 
+     protected boolean running = false;
      /**
      * Constructor - initializes an instance of the GroveUltrasonicRanger
      * @param grovePi Reference to the GrovePi object
@@ -18,6 +19,13 @@ public abstract class RangeSensor{
      */
     public RangeSensor(GrovePi grovePi, int pin) {
         ranger = new GroveUltrasonicRanger(grovePi, pin);
+    }
+    
+     /**
+     * Stops the Sensor from firing continuous Range calls
+     */
+    public void stop() {
+        running = false;
     }
     
     /**
