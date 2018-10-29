@@ -80,6 +80,9 @@ public abstract class RangeSensor{
         return Objects.equals(this.grovePi, that.grovePi) && this.pin == that.pin;
     }
     
+    /*
+     * Returns hashcode for this instance  
+     */
     @Override 
     public int hashCode() {
         int hashCode = 0;
@@ -88,6 +91,9 @@ public abstract class RangeSensor{
         return hashCode;
     }
     
+    /*
+     * Returns string representation of this instance.
+     */
     @Override 
     public String toString() {
         return String.format("%s %s %s", this.getClass().getSimpleName(), grovePi, pin);
