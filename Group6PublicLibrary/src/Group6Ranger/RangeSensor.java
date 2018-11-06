@@ -98,4 +98,48 @@ public abstract class RangeSensor{
     public String toString() {
         return String.format("%s %s %s", this.getClass().getSimpleName(), grovePi, pin);
     }
+    
+    /*
+     * An iterator over a RangeSensor's observers.
+     * @return an iterator that moves through the RangeSensor's observers in reverse order starting with the most recently attached observer.
+     */
+    public Iterator<IRangeObserver> iterator() {
+        return new RangeObserverIterator(this.observers);
+    }
+    
+    /*
+     * An iterator over a RangeSensor's observers.
+     *
+     * The RangeObserverIterator iterates over a RangeSensor's observers in reverse order starting with the most recently attached observer.
+     */
+    private class RangeObserverIterator implements Iterator<IRangeObserver> {
+        
+        private final List<IRangeObserver> observers;
+        private int index; 
+        
+        public RangeObserverIterator(List<IRangeObserver> observers) {
+            Objects.requireNonNull(observers, "Non null observers value required.");
+            this.observers = observers;
+            this.index = observers.size() - 1;
+        }
+        
+        /*
+         * Returns true if iteration is not complete and false otherwise.
+         */
+        public boolean hasNext() {
+            return this.index >= 0;
+        }
+                    
+        /*
+         * Returns next observer or null if iteration was completed in a previous call.
+         * Clients should always call hasNext before calling next to ensure a non-null value.
+         */
+        public IRangeObserver next() {
+            if (this.index < 0) {
+                return null;
+            }
+            return this.observers.get(this.index--);
+        }
+        
+    }
 }
