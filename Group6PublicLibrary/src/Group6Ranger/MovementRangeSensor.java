@@ -31,7 +31,7 @@ public final class MovementRangeSensor extends RangeSensor {
         try {
             distance = ranger.get();
         } catch (IOException ex) {
-            System.out.println("IOException in detectMovement of Movement Range Sensor" + ex);
+            System.out.println("IOException in detectMovement of Movement Range Sensor:\n" + ex);
             return false;
         }
         while (running) {
@@ -43,7 +43,7 @@ public final class MovementRangeSensor extends RangeSensor {
                     return true;
                 }
             } catch (IOException ex) {
-                System.out.println("IOException in detectMovement of Movement Range Sensor" + ex);
+                System.out.println("IOException in detectMovement of Movement Range Sensor:\n" + ex);
                 return false;
             }
         }
