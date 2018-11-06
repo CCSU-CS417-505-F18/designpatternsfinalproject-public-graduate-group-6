@@ -36,7 +36,7 @@ public final class MovementRangeSensor extends RangeSensor {
         }
         while (running) {
             try {
-                System.out.println("Movement Range Sensor: Checking range");
+                //System.out.println("Movement Range Sensor: Checking range");
                 double newRange = ranger.get();
                 if (Math.abs(distance - newRange) > 5) {
                     notifyObservers(distance);
