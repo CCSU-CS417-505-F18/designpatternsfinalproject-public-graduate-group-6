@@ -15,6 +15,7 @@ public final class MovementRangeSensor extends RangeSensor {
      */
     public MovementRangeSensor(GrovePi grovePi, int pin) {
         super(grovePi, pin);
+        System.out.println("Movement Range Sensor initialized on pin: " + pin);
     }
 
     /**
@@ -30,18 +31,19 @@ public final class MovementRangeSensor extends RangeSensor {
         try {
             distance = ranger.get();
         } catch (IOException ex) {
-            System.out.println("error");
+            System.out.println("IOException in detectMovement of Movement Range Sensor" + ex);
             return false;
         }
         while (running) {
             try {
+                System.out.println("Movement Range Sensor: Checking range");
                 double newRange = ranger.get();
                 if (Math.abs(distance - newRange) > 5) {
                     notifyObservers(distance);
                     return true;
                 }
             } catch (IOException ex) {
-                System.out.println("error");
+                System.out.println("IOException in detectMovement of Movement Range Sensor" + ex);
                 return false;
             }
         }
