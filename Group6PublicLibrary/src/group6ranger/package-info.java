@@ -9,4 +9,4 @@
  * @author David Hanley, Wayne Work, Paul Borysewicz, Chris Mirabello
  * @version 1.0 10/28/2018
  */
-package Group6Ranger;
+package group6ranger;
