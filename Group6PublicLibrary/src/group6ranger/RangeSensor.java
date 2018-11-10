@@ -57,38 +57,38 @@ public abstract class RangeSensor{
             o.update(this, range);
         });
     }
-    
-    /*
-     * Checks 'this' and 'o' for equality
-     * @param o object to check against 'this' for equality
-     */
-    @Override 
-    public boolean equals(Object o) {
-        if (o == null) {
-            return false;
-        }
-        
-        if (o == this) {
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 43 * hash + Objects.hashCode(this.observers);
+        hash = 43 * hash + (this.running ? 1 : 0);
+        hash = 43 * hash + this.pin;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
-     
-        if (o.getClass() != this.getClass()) {
+        if (obj == null) {
             return false;
         }
-        
-        RangeSensor that = (RangeSensor) o;
-        return Objects.equals(this.grovePi, that.grovePi) && this.pin == that.pin;
-    }
-    
-    /*
-     * Returns hashcode for this instance  
-     */
-    @Override 
-    public int hashCode() {
-        int hashCode = 0;
-        hashCode += grovePi.hashCode();
-        hashCode += pin;
-        return hashCode;
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final RangeSensor other = (RangeSensor) obj;
+        if (this.running != other.running) {
+            return false;
+        }
+        if (this.pin != other.pin) {
+            return false;
+        }
+        if (!Objects.equals(this.observers, other.observers)) {
+            return false;
+        }
+        return true;
     }
     
     /*
