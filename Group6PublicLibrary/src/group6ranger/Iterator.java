@@ -10,6 +10,6 @@ package group6ranger;
  * @author Paul Borysewicz
  */
 public interface Iterator<T> {
-    boolean hasNext();
-    T next();
+    public boolean hasNext();
+    public T next();
 }
