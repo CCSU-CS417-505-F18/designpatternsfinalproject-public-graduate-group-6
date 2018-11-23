@@ -9,7 +9,7 @@ import org.iot.raspberry.grovepi.devices.GroveUltrasonicRanger;
  */
 public abstract class RangeSensor{
     private List<IRangeObserver> observers = new ArrayList<IRangeObserver>();
-    GroveUltrasonicRanger ranger;
+    protected GroveUltrasonicRanger ranger;
 
     protected boolean running = false;
     protected GrovePi grovePi;
