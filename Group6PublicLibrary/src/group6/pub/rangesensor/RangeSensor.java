@@ -104,7 +104,7 @@ public abstract class RangeSensor{
      * An iterator over a RangeSensor's observers.
      * @return an iterator that moves through the RangeSensor's observers in reverse order starting with the most recently attached observer.
      */
-    public Iterator<IRangeObserver> iterator() {
+    public Iterator<IRangeObserver> Iterator() {
         return new RangeObserverIterator(this.observers);
     }
     
