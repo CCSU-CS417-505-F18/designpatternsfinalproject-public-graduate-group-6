@@ -35,7 +35,7 @@ public abstract class RangeSensor{
     
     /**
      * Use to attach Observers to this Subject so they can receive future updates
-     * @param observer 
+     * @param observer observer object that should receive updates
      */
     public void attachObserver(IRangeObserver observer){
         observers.add(observer);
@@ -43,7 +43,7 @@ public abstract class RangeSensor{
     
     /**
      * Use to detach Observers so they no longer receive updates
-     * @param observer 
+     * @param observer observer object that should no longer receive updates
      */
     public void detachObserver(IRangeObserver observer){
         observers.remove(observer);
@@ -51,6 +51,7 @@ public abstract class RangeSensor{
     
     /**
      * Updates all attached Observers
+     * @param range the range that the sensor detected
      */
     public final void notifyObservers(double range){
         observers.forEach((o) -> {
