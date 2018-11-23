@@ -1,4 +1,4 @@
-package group6ranger;
+package group6.pub.rangesensor;
 
 import java.util.*;
 import org.iot.raspberry.grovepi.GrovePi;

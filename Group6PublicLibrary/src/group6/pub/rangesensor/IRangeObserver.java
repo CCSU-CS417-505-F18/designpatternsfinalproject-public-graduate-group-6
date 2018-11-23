@@ -1,4 +1,4 @@
-package group6ranger;
+package group6.pub.rangesensor;
 /**
  * 
  * Public interface which is notified by an associated range sensor when 
