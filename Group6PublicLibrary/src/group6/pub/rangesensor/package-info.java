@@ -9,4 +9,4 @@
  * @author David Hanley, Wayne Work, Paul Borysewicz, Chris Mirabello
  * @version 1.0 10/28/2018
  */
-package group6ranger;
+package group6.pub.rangesensor;

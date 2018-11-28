@@ -1,4 +1,4 @@
-package group6ranger;
+package group6.pub.rangesensor;
 
 import java.util.*;
 import org.iot.raspberry.grovepi.GrovePi;
@@ -9,7 +9,7 @@ import org.iot.raspberry.grovepi.devices.GroveUltrasonicRanger;
  */
 public abstract class RangeSensor{
     private List<IRangeObserver> observers = new ArrayList<IRangeObserver>();
-    GroveUltrasonicRanger ranger;
+    protected GroveUltrasonicRanger ranger;
 
     protected boolean running = false;
     protected GrovePi grovePi;
@@ -35,7 +35,7 @@ public abstract class RangeSensor{
     
     /**
      * Use to attach Observers to this Subject so they can receive future updates
-     * @param observer 
+     * @param observer observer object that should receive updates
      */
     public void attachObserver(IRangeObserver observer){
         observers.add(observer);
@@ -43,7 +43,7 @@ public abstract class RangeSensor{
     
     /**
      * Use to detach Observers so they no longer receive updates
-     * @param observer 
+     * @param observer observer object that should no longer receive updates
      */
     public void detachObserver(IRangeObserver observer){
         observers.remove(observer);
@@ -51,6 +51,7 @@ public abstract class RangeSensor{
     
     /**
      * Updates all attached Observers
+     * @param range the range that the sensor detected
      */
     public final void notifyObservers(double range){
         observers.forEach((o) -> {
@@ -103,7 +104,7 @@ public abstract class RangeSensor{
      * An iterator over a RangeSensor's observers.
      * @return an iterator that moves through the RangeSensor's observers in reverse order starting with the most recently attached observer.
      */
-    public Iterator<IRangeObserver> iterator() {
+    public Iterator<IRangeObserver> Iterator() {
         return new RangeObserverIterator(this.observers);
     }
     

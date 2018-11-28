@@ -1,4 +1,4 @@
-package group6ranger;
+package group6.pub.rangesensor;
 
 import java.io.IOException;
 import org.iot.raspberry.grovepi.GrovePi;
@@ -23,7 +23,7 @@ public final class WithinRangeSensor extends RangeSensor {
      * range. Checks the returned range against the passed in range 
      * threshold to determine if an object is within range.
      * Notifies all Observers if an object is within range
-     * @param range
+     * @param range range that the sensor should check against
      * @return true when an object is within the given range
      */
     public boolean withinRange(double range) {
